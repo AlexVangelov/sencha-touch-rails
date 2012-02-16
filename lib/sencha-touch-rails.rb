@@ -1,0 +1,1 @@
+require 'sencha-touch/rails'
