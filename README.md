@@ -6,7 +6,7 @@ This gem provides:
 
 ## Rails 3.1
 
-For Rails 3.1 and greater, the files will be added to the asset pipeline and available for you to use. These two lines will be added to the file `app/assets/javascripts/application.js` by default:
+For Rails 3.1 and greater, the files will be added to the asset pipeline and available to use. Add one of this lines to the file `app/assets/javascripts/application.js`:
 
     //= require sencha-touch-all
     or
