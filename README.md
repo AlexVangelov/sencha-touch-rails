@@ -39,3 +39,6 @@ You can include more icon styles by adding:
 
 	@include pictos-iconmask('wifi');
 	
+More about Sencha Touch Theming:
+
+[http://www.sencha.com/blog/an-introduction-to-theming-sencha-touch](http://www.sencha.com/blog/an-introduction-to-theming-sencha-touch)	
