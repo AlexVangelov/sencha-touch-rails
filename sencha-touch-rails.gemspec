@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Alex Vangelov"]
   s.email       = ["email@data.bg"]
-  s.homepage    = "http://rubygems.org/gems/sencha-touc-rails"
+  s.homepage    = "http://rubygems.org/gems/sencha-touch-rails"
   s.summary     = "Use Sencha Touch with Rails 3"
   s.description = "This gem provides Sencha Touch driver for Rails 3 applications"
 
