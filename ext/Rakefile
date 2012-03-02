@@ -1,0 +1,5 @@
+import '../bin/download_sencha_touch.rb'
+task :default do
+	p ARGV.inspect
+	download_sencha_touch
+end

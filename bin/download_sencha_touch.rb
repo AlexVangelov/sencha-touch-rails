@@ -4,6 +4,11 @@ require 'zip/zip'
 require 'fileutils'
 
 def download_sencha_touch(sencha_touch_zip=nil)
+  ui = Gem::DefaultUserInteraction.ui
+  ui.say "sdfsdfsdf"
+end
+
+def download_sencha_touch2(sencha_touch_zip=nil)
   size = ""
   sencha_touch_zip = 'http://dev.sencha.com/deploy/sencha-touch-2-rc2.zip'
   puts "Get #{sencha_touch_zip}"
