@@ -38,13 +38,6 @@ $toolbar-search-left-padding: 1.67em;
  * @member Ext.tab.Bar
  */
 @mixin sencha-toolbar-forms {
-
-  .x-desktop .x-toolbar {
-    .x-input-search {
-      margin-left: ($toolbar-search-left-padding - .61em);
-    }
-  }
-
   //so disabled fields are still dark
   .x-spinner .x-input-el,
   .x-field-select .x-input-el {
@@ -76,12 +69,17 @@ $toolbar-search-left-padding: 1.67em;
       margin: .5em;
       min-height: 0;
       border-bottom: 0;
+      background: transparent;
 
       .x-clear-icon {
         background-size: 50% 50%;
         right: -0.8em;
         margin-top: -1.06em;
       }
+    }
+
+    .x-field-input {
+      padding-right: 1.6em !important;
     }
 
     .x-field-textarea,
@@ -178,9 +176,7 @@ $toolbar-search-left-padding: 1.67em;
   }
 
   .x-android .x-field-search .x-field-input {
-    .x-form-field {
-      margin-left: $toolbar-search-left-padding !important;
-      width: 75% !important;
-    }
+    padding-left: .2em !important;
+    padding-right: 2.2em !important;
   }
 }
