@@ -17,7 +17,6 @@ Add one of this lines to the file `app/assets/javascripts/application.js`:
 Create `app/assets/stylesheets/sencha-touch.scss` and add the following lines in it:
 
   @import 'sencha-touch-rails';
-
   @include sencha-panel;
   @include sencha-buttons;
   @include sencha-sheet;
