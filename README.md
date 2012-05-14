@@ -16,23 +16,23 @@ Add one of this lines to the file `app/assets/javascripts/application.js`:
 
 Create `app/assets/stylesheets/sencha-touch.scss` and add the following lines in it:
 
-  @import 'sencha-touch-rails';
-  @include sencha-panel;
-  @include sencha-buttons;
-  @include sencha-sheet;
-  @include sencha-picker;
-  @include sencha-tabs;
-  @include sencha-toolbar;
-  @include sencha-toolbar-forms;
-  @include sencha-indexbar;
-  @include sencha-list;
-  @include sencha-list-paging;
-  @include sencha-list-pullrefresh;
-  @include sencha-layout;
-  @include sencha-carousel;
-  @include sencha-form;
-  @include sencha-msgbox;
-  @include sencha-loading-spinner;
+    @import 'sencha-touch-rails';
+    @include sencha-panel;
+    @include sencha-buttons;
+    @include sencha-sheet;
+    @include sencha-picker;
+    @include sencha-tabs;
+    @include sencha-toolbar;
+    @include sencha-toolbar-forms;
+    @include sencha-indexbar;
+    @include sencha-list;
+    @include sencha-list-paging;
+    @include sencha-list-pullrefresh;
+    @include sencha-layout;
+    @include sencha-carousel;
+    @include sencha-form;
+    @include sencha-msgbox;
+    @include sencha-loading-spinner;
 
 You can include more icon styles by adding:
 
