@@ -36,7 +36,7 @@ Create `app/assets/stylesheets/sencha-touch.scss` and add the following lines in
 
 You can include more icon styles by adding:
 
-  @include pictos-iconmask('wifi');
+    @include pictos-iconmask('wifi');
 
 More about Sencha Touch Theming:
 
