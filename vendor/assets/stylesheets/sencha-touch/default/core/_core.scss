@@ -34,10 +34,6 @@ body {
   font-size: 104%;
 }
 
-body.x-ios {
-  -webkit-backface-visibility: hidden;
-}
-
 body.x-android.x-phone {
   font-size: 116%;
 }
@@ -184,6 +180,6 @@ input, textarea {
   z-index: 5;
 }
 
-.x-fullscreen, .x-layout-fit-item, .x-layout-card-item {
+.x-layout-card-item {
   background: $page-bg-color;
 }
