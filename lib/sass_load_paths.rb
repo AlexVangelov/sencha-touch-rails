@@ -1,6 +1,8 @@
+require 'tilt'
+
 module Sass
   module Rails
-    class SassTemplate
+    class SassTemplate < Tilt::SassTemplate
       def sass_options_from_rails(scope)
         options = scope.environment.context_class.sass_config
         options.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"

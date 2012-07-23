@@ -72,3 +72,4 @@ DEPENDENCIES
   sass
   sencha-touch-rails!
   sprockets
+  tilt
