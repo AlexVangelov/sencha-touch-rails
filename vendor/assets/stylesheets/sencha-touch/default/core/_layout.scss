@@ -1,159 +1,404 @@
+@mixin absolute-position($top: 0, $right: 0, $bottom: 0, $left: 0){
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin absolute-fit {
+  width: auto;
+  height: auto;
+//overflow: hidden;
+  @include absolute-position;
+}
+
+@mixin box(){
+  display: -webkit-box;
+}
+
+@mixin box-align($align: stretch){
+  -webkit-box-align: $align;
+}
+
+@mixin box-orient($orient: horizontal){
+  -webkit-box-orient: $orient;
+}
+
+@mixin box-orient-important($orient: horizontal){
+  -webkit-box-orient: $orient !important;
+}
+
+@mixin box-pack($pack: start){
+  -webkit-box-pack: $pack;
+}
+
+@mixin box-flex($flex: 1){
+  -webkit-box-flex: $flex;
+}
+
 @mixin sencha-layout {
   html, body {
     width: 100%;
     height: 100%;
   }
 
-  .x-translatable {
-    position: absolute !important;
-    top: 100% !important;
-    left: 100% !important;
-    z-index: 1;
+  @-webkit-keyframes x-paint-monitor-helper {
+    from { zoom: 1 }
+    to { zoom: 1 }
   }
 
-  .x-translatable-container {
+  .x-paint-monitored {
     position: relative;
   }
 
-  .x-translatable-wrapper {
+  .x-paint-monitor {
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden;
+    &.cssanimation {
+      -webkit-animation-duration: 0.0001ms;
+      -webkit-animation-name: x-paint-monitor-helper;
+    }
+    &.overflowchange {
+      overflow: hidden;
+      &::after {
+        content: "";
+        display: block;
+        width: 1px !important;
+        height: 1px !important;
+      }
+    }
+  }
+
+  .x-size-monitored {
+    position:relative;
+  }
+
+  .x-size-monitors {
+    position:absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    position: absolute;
+    visibility: hidden;
     overflow: hidden;
+    > * {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    &.scroll > * {
+      &.shrink::after {
+        content: "";
+        display: block;
+        width: 200%;
+        height: 200%;
+        min-width: 1px;
+        min-height: 1px;
+      }
+      &.expand::after {
+        content: "";
+        display: block;
+        width: 100000px;
+        height: 100000px;
+      }
+    }
+    &.overflowchanged > * {
+      &.shrink {
+        > * {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &.expand {
+        > * {
+          width: 200%;
+          height: 200%;
+        }
+      }
+    }
   }
 
-  .x-translatable-stretcher {
-    width: 300%;
-    height: 300%;
-    position: absolute;
-    visibility: hidden;
-    z-index: -1;
+  .x-body {
+    position: relative;
+    z-index: 0;
   }
 
-  .x-translatable-nested-stretcher {
+  .x-inner, .x-body {
     width: 100%;
     height: 100%;
-    left: 100%;
-    top: 100%;
-    position: absolute;
-    visibility: hidden;
-    z-index: -1;
   }
 
-  .x-layout-fit,
+  .x-dock, .x-dock-body {
+    height: 100%;
+  }
+
+  .x-sized {
+    position: relative;
+  }
+
+  .x-stretched.x-container {
+    @include box;
+    @include box-orient(vertical);
+    > .x-inner, > .x-body, > .x-body > .x-inner {
+      @include box();
+      @include box-flex(1);
+      @include box-orient(vertical);
+    }
+  }
+
+  .x-innerhtml {
+    width: 100%;
+  }
+
   .x-layout-card {
     position: relative;
     overflow: hidden;
   }
 
-  .x-layout-fit-item, .x-layout-card-item, .x-layout-card-container {
-    position: absolute !important;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+  .x-layout-card-item-container {
+    @include absolute-fit;
   }
 
   .x-layout-card-item {
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    @include absolute-position;
   }
 
-  .x-layout-hbox, .x-layout-vbox {
-    display: -webkit-box;
-    > * {
-      -webkit-box-flex: 0;
+  .x-layout-newcard-item, .x-layout-newcard-item > * {
+    @include absolute-position;
+  }
+
+  .x-layout-newcard-item:not(.active) {
+    display: none;
+  }
+
+  .x-layout-fit.x-stretched > .x-layout-fit-item {
+    @include box();
+    @include box-flex(1);
+  }
+
+  .x-layout-fit {
+    position: relative;
+  }
+
+  .x-layout-fit-item {
+    &.x-sized {
+      @include absolute-position;
+    }
+    &.x-unsized {
+      width: 100%;
+      height: 100%;
     }
   }
 
-  .x-layout-hbox {
-    -webkit-box-orient: horizontal;
+  .x-center, .x-centered {
+    @include absolute-position;
+    @include box;
+    @include box-align(center);
+    @include box-pack(center);
+    > * {
+      position: relative;
+    }
+    > .x-floating {
+      position: relative !important;
+    }
   }
 
-  .x-layout-vbox {
-    -webkit-box-orient: vertical;
+  .x-floating {
+    position: absolute;
   }
 
-  .x-layout-hbox > .x-layout-box-item {
-    width: 0 !important;
+  .x-dock {
+    @include box();
+    &.x-sized, &.x-sized > .x-dock-body > *,
+    &.x-sized > .x-dock-body > .x-body > .x-inner {
+      @include absolute-fit();
+    }
+    .x-dock-body {
+      @include box();
+      @include box-flex(1);
+    }
+    &.x-sized > .x-dock-body {
+      position: relative;
+    }
+    &.x-unsized, &.x-stretched {
+      > .x-dock-body {
+        @include box-orient(vertical);
+        > * {
+          @include box-flex(1);
+        }
+      }
+    }
+    &.x-dock-vertical {
+      @include box-orient(vertical);
+    }
+    &.x-dock-horizontal {
+      @include box-orient(horizontal);
+      > .x-dock-item {
+        @include box();
+        &.x-sized {
+          > .x-inner, > .x-body {
+            @include absolute-fit();
+          }
+        }
+        &.x-unsized {
+          @include box-orient(vertical);
+          > * {
+            @include box-flex(1);
+          }
+        }
+      }
+    }
+  }
+  //.x-dock {
+  //  display: table;
+  //  width: 100%;
+  //  height: 100%;
+  //  &.x-dock-vertical {
+  //    > * {
+  //      display: table-row;
+  //    }
+  //    > .x-dock-item {
+  //      height: 1px;
+  //    }
+  //    &.x-sized > .x-dock-body {
+  //      > .x-body, > .x-inner, > .x-body > .x-inner {
+  //        width: 100%;
+  //        height: 100%;
+  //      }
+  //    }
+  //  }
+  //  &.x-dock-horizontal {
+  //    > * {
+  //      display: table-cell;
+  //      vertical-align: top;
+  //      height: 100%;
+  //      position: relative;
+  //    }
+  //    > .x-dock-item {
+  //      width: 1px;
+  //    }
+  //    > .x-dock-item > *, > .x-dock-body > * {
+  //      height: 100%;
+  //    }
+  //    &.x-sized > .x-dock-body {
+  //      > .x-body, > .x-inner, > .x-body > .x-inner {
+  //        width: 100%;
+  //        height: 100%;
+  //      }
+  //    }
+  //  }
+  //}
+
+  .x-layout-box {
+    @include box;
+    &.x-horizontal {
+      @include box-orient-important(horizontal);
+      > .x-layout-box-item.x-flexed {
+        width: 0 !important;
+      }
+    }
+    &.x-vertical {
+      @include box-orient(vertical);
+      > .x-layout-box-item.x-flexed {
+        height: 0 !important;
+      }
+    }
+    > .x-layout-box-item {
+      display: -webkit-box !important;
+    }
+    &.x-align-start {
+      @include box-align(start);
+    }
+    &.x-align-center {
+      @include box-align(center);
+    }
+    &.x-align-end {
+      @include box-align(end);
+    }
+    &.x-align-stretch {
+      @include box-align(stretch);
+    }
+    &.x-pack-start {
+      @include box-pack(start);
+    }
+    &.x-pack-center {
+      @include box-pack(center);
+    }
+    &.x-pack-end {
+      @include box-pack(end);
+    }
+    &.x-pack-justify {
+      @include box-pack(justify);
+    }
   }
 
-  .x-layout-vbox > .x-layout-box-item {
-    height: 0 !important;
+  .x-layout-box-item.x-sized {
+    > .x-inner, > .x-body, > .x-dock-outer {
+      @include absolute-fit;
+    }
+  }
+
+  .x-layout-float {
+    overflow: hidden;
+    > .x-layout-float-item {
+      float: left;
+    }
+    &.x-direction-right {
+      > .x-layout-float-item {
+        float: right;
+      }
+    }
   }
 
   .x-table-inner {
     display: table !important;
-    width: 100%;
-    height: 100%;
-  }
+    width: 100% !important;
+    height: 100% !important;
 
-  .x-table-inner.x-table-fixed {
-    table-layout: fixed !important;
+    &.x-fixed-layout {
+      table-layout: fixed !important;
+    }
   }
 
   .x-table-row {
     display: table-row !important;
   }
 
-  .x-table-row > * {
+  .x-table-cell {
     display: table-cell !important;
     vertical-align: middle;
   }
 
-  .x-container, .x-body {
-    display: -webkit-box;
+  .x-translatable {
+      position: absolute;
+      top: 100% !important;
+      left: 100% !important;
+      overflow: visible !important;
+      z-index: 1;
+      &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 100%;
+          left: 100%;
+          width: 100%;
+          height: 100%;
+          visibility: hidden;
+      }
   }
 
-  .x-body {
-    overflow: hidden;
-    -webkit-box-flex: 1;
-    min-width: 100%;
-    min-height: 100%;
-  }
-
-  .x-body > .x-inner, .x-container > .x-inner {
-    -webkit-box-flex: 1;
-    min-width: 100%;
-    min-height: 100%;
-    position: relative;
-  }
-
-  .x-docking-horizontal {
-    display: -webkit-box;
-    -webkit-box-flex: 1;
-    -webkit-box-orient: horizontal;
-    min-width: 100%;
-    min-height: 100%;
-  }
-
-  .x-docking-vertical {
-    display: -webkit-box;
-    -webkit-box-flex: 1;
-    -webkit-box-orient: vertical;
-    min-width: 100%;
-    min-height: 100%;
-  }
-
-  .x-centered {
-    position: absolute !important;
-    width: 100%;
-    height: 100%;
-    display: -webkit-box;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-  }
-
-  .x-floating {
-    position: absolute !important;
-  }
-
-  .x-centered > * {
-    position: relative !important;
-    -webkit-box-flex: 0 !important;
+  .x-translatable-container {
+      overflow: hidden;
+      @include absolute-fit();
+      &::before {
+          content: "";
+          display: block;
+          width: 300%;
+          height: 300%;
+          visibility: hidden;
+      }
   }
 
   .x-size-change-detector {
@@ -184,11 +429,11 @@
   .x-scroll-view {
     position: relative;
     display: block;
+    overflow: hidden;
   }
 
   .x-scroll-container {
     position: absolute;
-    overflow: hidden;
     width: 100%;
     height: 100%;
   }
@@ -197,6 +442,8 @@
     position: absolute;
     min-width: 100%;
     min-height: 100%;
+    width: auto !important;
+    height: auto !important;
   }
 
   .x-ios .x-scroll-scroller {
@@ -280,8 +527,12 @@
   .x-scroll-indicator {
     background: #333;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     opacity: 0.5;
+  }
+
+  .x-android-4 .x-scroll-indicator {
+    opacity: 1;
   }
 
   .x-scroll-indicator.default {
@@ -305,9 +556,12 @@
     width: 100%;
   }
 
+  .x-scroll-indicator-light {
+    background: #eee;
+  }
+
   .x-scroll-indicator.csstransform {
     background: none;
-  /*-webkit-transition: opacity 0.2s ease-out;*/
 
     > * {
       position: absolute;
