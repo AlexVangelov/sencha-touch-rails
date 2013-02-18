@@ -7,3 +7,5 @@ module SenchaTouch
     Sass.load_paths << stylesheets
   end
 end
+
+SenchaTouch.load!
