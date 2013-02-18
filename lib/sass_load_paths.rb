@@ -7,7 +7,7 @@ module Sass
         options = scope.environment.context_class.sass_config
         options.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
         options.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/blueprint/stylesheets"
-        options.load_paths << "#{Gem.loaded_specs['secha-touch-rails'].full_gem_path}/vendor/assets/stylesheets/sencha-touch/default"
+        options.load_paths << "#{Gem.loaded_specs['sencha-touch-rails'].full_gem_path}/vendor/assets/stylesheets/sencha-touch/default"
         return options
       end
     end
