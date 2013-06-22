@@ -1,5 +1,5 @@
 @import 'sencha-touch/default/all';
-//
+
 @include sencha-panel;
 @include sencha-buttons;
 @include sencha-sheet;
@@ -16,3 +16,5 @@
 @include sencha-form;
 @include sencha-msgbox;
 @include sencha-loading-spinner;
+@include sencha-draw;
+@include sencha-charts;
