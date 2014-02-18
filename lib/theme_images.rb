@@ -13,10 +13,6 @@ module SenchaTouch
   end
 end
 
-module Sass
-  module Script
-    module Functions
-     include SenchaTouch::SassExtensions::Functions::ThemeImages
-    end
-  end
+module Sass::Script::Functions
+  include SenchaTouch::SassExtensions::Functions::ThemeImages
 end
