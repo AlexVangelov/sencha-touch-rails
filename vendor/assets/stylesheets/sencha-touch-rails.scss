@@ -1,0 +1,25 @@
+/*
+This file includes Senchca Touch base stylesheet files in Rails Asset Pipeline
+@author Alex Vangelov <email@data.bg>
+
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+*/
+
+$experimental-support-for-svg: false;
+$experimental-support-for-webkit: false;
+$experimental-support-for-mozilla: false;
+$experimental-support-for-opera: false;
+$experimental-support-for-pie: false;
+
+@import "compass/css3/box";
+
+@import 'sencha-touch/base';

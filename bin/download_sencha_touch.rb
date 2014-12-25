@@ -32,7 +32,7 @@ def download_sencha_touch(sencha_touch_zip=nil)
   FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/stylesheets/sencha-touch","../vendor/assets/stylesheets/sencha-touch"
   FileUtils.mv "sencha-touch/touch-2.4.1/resources/sass", "../vendor/assets/stylesheets/sencha-touch/themes"
   FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/fonts", "../vendor/assets/fonts"
-  FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/images", "../vendor/assets/images/sencha-touch"
+  FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/images", "../vendor/assets/images"
   FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/vendor/compass-recipes", "../vendor/compass-recipes"
   FileUtils.mv [
     "sencha-touch/touch-2.4.1/sencha-touch-all-debug.js",
