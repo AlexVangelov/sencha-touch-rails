@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'rubygems/user_interaction'
 require 'open-uri'
 require 'zip'
 require 'fileutils'
@@ -29,5 +28,17 @@ def download_sencha_touch(sencha_touch_zip=nil)
           }
         end
     }
-   puts "Download and Extract Sencha Touch [OK]                                                 "
+  FileUtils.mv "sencha-touch/touch-2.4.1/src","../vendor/assets/javascripts/sencha-touch"
+  FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/stylesheets/sencha-touch","../vendor/assets/stylesheets/sencha-touch"
+  FileUtils.mv "sencha-touch/touch-2.4.1/resources/sass", "../vendor/assets/stylesheets/sencha-touch/themes"
+  FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/fonts", "../vendor/assets/fonts"
+  FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/images", "../vendor/assets/images/sencha-touch"
+  FileUtils.mv "sencha-touch/touch-2.4.1/resources/themes/vendor/compass-recipes", "../vendor/compass-recipes"
+  FileUtils.mv [
+    "sencha-touch/touch-2.4.1/sencha-touch-all-debug.js",
+    "sencha-touch/touch-2.4.1/sencha-touch-all.js",
+    "sencha-touch/touch-2.4.1/sencha-touch-debug.js",
+    "sencha-touch/touch-2.4.1/sencha-touch.js"
+    ], "../vendor/assets/javascripts"
+  puts "Download and Extract Sencha Touch [OK]                                                 "
 end
