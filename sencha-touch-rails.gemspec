@@ -8,16 +8,19 @@ Gem::Specification.new do |s|
   s.authors     = ["Alex Vangelov"]
   s.email       = ["email@data.bg"]
   s.homepage    = "http://rubygems.org/gems/sencha-touch-rails"
-  s.summary     = "Use Sencha Touch with Rails 3"
-  s.description = "This gem provides Sencha Touch driver for Rails 3 applications"
+  s.summary     = "Using Sencha Touch with Rails"
+  s.description = "This gem provides Sencha Touch GPL to Rails assets pipeline"
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "sencha-touch-rails"
 
   s.add_dependency "railties", ">= 3.2.1", "< 5.0"
-  s.add_dependency "thor",     "~> 0.14"
+  #s.add_dependency "thor",     "~> 0.14"
+  s.add_dependency "compass", ">= 1.0.1"
 
   s.files        = `git ls-files`.split("\n")
   s.extensions   = 'ext/mkrf_conf.rb'
   s.require_path = 'lib'
+  
+  s.add_development_dependency "rubyzip"
 end
