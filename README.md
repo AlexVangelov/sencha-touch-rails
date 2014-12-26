@@ -2,38 +2,64 @@
 
 This gem provides:
 
-* Sencha Touch 2.0.0.beta3
+* Sencha Touch 2.4.1 GPL
 
-## Rails 3.1
+## Installation
 
-For Rails 3.1 and greater, the files will be added to the asset pipeline and available to use. 
+Add this line to your application's Gemfile:
 
-Add one of this lines to the file `app/assets/javascripts/application.js`:
+    gem 'sencha-touch-rails'
 
-    //= require sencha-touch-all
-    or
-    //= require sencha-touch-all-debug
-	
-Create `app/assets/stylesheets/sencha-touch.scss` and add the following lines in it:
+And then execute:
 
-	@import 'sencha-touch-rails';
-	
-	@include sencha-panel;
-	@include sencha-buttons;
-	@include sencha-sheet;
-	@include sencha-picker;
-	@include sencha-tabs;
-	@include sencha-toolbar;
-	@include sencha-toolbar-forms;
-	@include sencha-indexbar;
-	@include sencha-list;
-	@include sencha-list-paging;
-	@include sencha-list-pullrefresh;
-	@include sencha-layout;
-	@include sencha-carousel;
-	@include sencha-form;
-	@include sencha-msgbox;
-	@include sencha-loading-spinner;
+    $ bundle install
+
+Keep in mind that Sencha Touch GPL is downloaded during the gem instalation and can take a long time. You can monitor download progress by install it yourself as:
+
+    $ gem install sencha-touch-rail --verbose
+
+The Sencha Touch files will be added to the asset pipeline and available to use. 
+
+Add to `app/assets/javascripts/application.js`:
+
+    //= require sencha-touch-rails
+    
+Add to `app/assets/stylesheets/application.css` (you can change the theme with your favorite)
+
+    *= require sencha-touch/themes/sencha-touch
+
+To customize Sencha Touch, create `app/assets/stylesheets/sencha-touch.scss` and use:
+
+  @import 'sencha-touch/default';
+
+  @import 'sencha-touch/default/src/Class';
+  @import 'sencha-touch/default/src/Button';
+  @import 'sencha-touch/default/src/Panel';
+  @import 'sencha-touch/default/src/Sheet';
+  @import 'sencha-touch/default/src/MessageBox';
+  @import 'sencha-touch/default/src/Toolbar';
+  @import 'sencha-touch/default/src/Toast';
+  @import 'sencha-touch/default/src/Menu';
+  @import 'sencha-touch/default/src/carousel/Carousel';
+  @import 'sencha-touch/default/src/form/Panel';
+  @import 'sencha-touch/default/src/form/FieldSet';
+  @import 'sencha-touch/default/src/field/Field';
+  @import 'sencha-touch/default/src/field/Checkbox';
+  @import 'sencha-touch/default/src/field/Radio';
+  @import 'sencha-touch/default/src/field/Search';
+  @import 'sencha-touch/default/src/field/Select';
+  @import 'sencha-touch/default/src/field/Slider';
+  @import 'sencha-touch/default/src/field/Spinner';
+  @import 'sencha-touch/default/src/field/TextArea';
+  @import 'sencha-touch/default/src/dataview/IndexBar';
+  @import 'sencha-touch/default/src/dataview/List';
+  @import 'sencha-touch/default/src/picker/Picker';
+  @import 'sencha-touch/default/src/plugin/ListPaging';
+  @import 'sencha-touch/default/src/plugin/PullRefresh';
+  @import 'sencha-touch/default/src/slider/Slider';
+  @import 'sencha-touch/default/src/slider/Toggle';
+  @import 'sencha-touch/default/src/tab/Panel';
+  @import 'sencha-touch/default/src/grid/Grid';
 	
 You can include more icon styles by adding:
 
@@ -42,3 +68,24 @@ You can include more icon styles by adding:
 More about Sencha Touch Theming:
 
 [http://www.sencha.com/blog/an-introduction-to-theming-sencha-touch](http://www.sencha.com/blog/an-introduction-to-theming-sencha-touch)	
+
+Simple usage with coffee script:
+
+    Ext.application
+      name: 'Sencha',
+      launch: ->
+        Ext.create "Ext.tab.Panel",
+          fullscreen: true,
+          tabBarPosition: 'bottom',
+          items: [
+            {
+              title: 'Home',
+              iconCls: 'home',
+              html: "Home"
+            },
+            {
+              title: 'Settings',
+              iconCls: 'settings',
+              html: "Settings"
+            }
+          ]

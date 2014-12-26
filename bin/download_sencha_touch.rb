@@ -18,7 +18,7 @@ def download_sencha_touch(sencha_touch_zip=nil)
     :progress_proc => lambda {|s|
       print "Downloading #{s} of #{size}                                                      \r"
     },
-    "User-Agent" => "Mozilla/5.0 (X11; U; Linux; i686; en-US; rv:1.6) Gecko Debian/1.6-7","Referer" => "http://github.com/AlexVangelov/sencha-touch-rails/") {|zf|
+    "User-Agent" => "Mozilla/5.0 (X11; U; Linux; i686; en-US; rv:1.6) Gecko Debian/1.6-7","Referer" => "http://rubygems.org/gems/sencha-touch-rails") {|zf|
         Zip::File.open(zf.path) do |zipfile|
           zipfile.each{|e|
             print "Extracting #{File.basename(e.to_s)}                                        \r"
@@ -40,5 +40,25 @@ def download_sencha_touch(sencha_touch_zip=nil)
     "sencha-touch/touch-2.4.1/sencha-touch-debug.js",
     "sencha-touch/touch-2.4.1/sencha-touch.js"
     ], "../vendor/assets/javascripts"
+    
+  [# patch for newest compass
+    "../vendor/assets/stylesheets/sencha-touch/base/src/_ProgressIndicator.scss",
+    "../vendor/assets/stylesheets/sencha-touch/tizen/base/src/_Mask.scss",
+    "../vendor/compass-recipes/stylesheets/recipes/shared/_user-select.scss"
+  ].each do |filename|
+    text = File.read(filename) 
+    puts = text.gsub("@include experimental(", "@include animation-duration(")
+    File.open(filename, "w") { |file| file << puts }
+  end
+  sencha_base = "../vendor/assets/stylesheets/sencha-touch/_base.scss"
+  patch = "$experimental-support-for-svg: false;
+$experimental-support-for-webkit: false;
+$experimental-support-for-mozilla: false;
+$experimental-support-for-opera: false;
+$experimental-support-for-pie: false;
+@import \"compass/css3/box\";
+"
+  tmp_base = File.read(sencha_base)
+  File.open(sencha_base, "w") { |file| file << patch << tmp_base }
   puts "Download and Extract Sencha Touch [OK]                                                 "
 end

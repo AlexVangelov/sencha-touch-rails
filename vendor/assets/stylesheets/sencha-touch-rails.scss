@@ -13,13 +13,4 @@ requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 */
-
-$experimental-support-for-svg: false;
-$experimental-support-for-webkit: false;
-$experimental-support-for-mozilla: false;
-$experimental-support-for-opera: false;
-$experimental-support-for-pie: false;
-
-@import "compass/css3/box";
-
 @import 'sencha-touch/base';

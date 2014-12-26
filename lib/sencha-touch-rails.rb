@@ -1,6 +1,6 @@
 require 'sencha-touch/rails'
 
-require 'compas_config'
+require 'compass_config'
 
 require 'theme_images'
 
