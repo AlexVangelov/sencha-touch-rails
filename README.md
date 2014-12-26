@@ -16,7 +16,7 @@ And then execute:
 
 Keep in mind that Sencha Touch GPL is downloaded during the gem instalation and can take a long time. You can monitor download progress by install it yourself as:
 
-    $ gem install sencha-touch-rail --verbose
+    $ gem install sencha-touch-rails --verbose
 
 The Sencha Touch files will be added to the asset pipeline and available to use. 
 
@@ -30,40 +30,40 @@ Add to `app/assets/stylesheets/application.css` (you can change the theme with y
 
 To customize Sencha Touch, create `app/assets/stylesheets/sencha-touch.scss` and use:
 
-  @import 'sencha-touch/default';
-
-  @import 'sencha-touch/default/src/Class';
-  @import 'sencha-touch/default/src/Button';
-  @import 'sencha-touch/default/src/Panel';
-  @import 'sencha-touch/default/src/Sheet';
-  @import 'sencha-touch/default/src/MessageBox';
-  @import 'sencha-touch/default/src/Toolbar';
-  @import 'sencha-touch/default/src/Toast';
-  @import 'sencha-touch/default/src/Menu';
-  @import 'sencha-touch/default/src/carousel/Carousel';
-  @import 'sencha-touch/default/src/form/Panel';
-  @import 'sencha-touch/default/src/form/FieldSet';
-  @import 'sencha-touch/default/src/field/Field';
-  @import 'sencha-touch/default/src/field/Checkbox';
-  @import 'sencha-touch/default/src/field/Radio';
-  @import 'sencha-touch/default/src/field/Search';
-  @import 'sencha-touch/default/src/field/Select';
-  @import 'sencha-touch/default/src/field/Slider';
-  @import 'sencha-touch/default/src/field/Spinner';
-  @import 'sencha-touch/default/src/field/TextArea';
-  @import 'sencha-touch/default/src/dataview/IndexBar';
-  @import 'sencha-touch/default/src/dataview/List';
-  @import 'sencha-touch/default/src/picker/Picker';
-  @import 'sencha-touch/default/src/plugin/ListPaging';
-  @import 'sencha-touch/default/src/plugin/PullRefresh';
-  @import 'sencha-touch/default/src/slider/Slider';
-  @import 'sencha-touch/default/src/slider/Toggle';
-  @import 'sencha-touch/default/src/tab/Panel';
-  @import 'sencha-touch/default/src/grid/Grid';
+    @import 'sencha-touch/default';
+  
+    @import 'sencha-touch/default/src/Class';
+    @import 'sencha-touch/default/src/Button';
+    @import 'sencha-touch/default/src/Panel';
+    @import 'sencha-touch/default/src/Sheet';
+    @import 'sencha-touch/default/src/MessageBox';
+    @import 'sencha-touch/default/src/Toolbar';
+    @import 'sencha-touch/default/src/Toast';
+    @import 'sencha-touch/default/src/Menu';
+    @import 'sencha-touch/default/src/carousel/Carousel';
+    @import 'sencha-touch/default/src/form/Panel';
+    @import 'sencha-touch/default/src/form/FieldSet';
+    @import 'sencha-touch/default/src/field/Field';
+    @import 'sencha-touch/default/src/field/Checkbox';
+    @import 'sencha-touch/default/src/field/Radio';
+    @import 'sencha-touch/default/src/field/Search';
+    @import 'sencha-touch/default/src/field/Select';
+    @import 'sencha-touch/default/src/field/Slider';
+    @import 'sencha-touch/default/src/field/Spinner';
+    @import 'sencha-touch/default/src/field/TextArea';
+    @import 'sencha-touch/default/src/dataview/IndexBar';
+    @import 'sencha-touch/default/src/dataview/List';
+    @import 'sencha-touch/default/src/picker/Picker';
+    @import 'sencha-touch/default/src/plugin/ListPaging';
+    @import 'sencha-touch/default/src/plugin/PullRefresh';
+    @import 'sencha-touch/default/src/slider/Slider';
+    @import 'sencha-touch/default/src/slider/Toggle';
+    @import 'sencha-touch/default/src/tab/Panel';
+    @import 'sencha-touch/default/src/grid/Grid';
 	
 You can include more icon styles by adding:
 
-	@include pictos-iconmask('wifi');
+    @include pictos-iconmask('wifi');
 	
 More about Sencha Touch Theming:
 
