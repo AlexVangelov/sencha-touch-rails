@@ -10,13 +10,13 @@ Gem::Specification.new do |s|
   s.homepage    = "http://rubygems.org/gems/sencha-touch-rails"
   s.summary     = "Using Sencha Touch with Rails"
   s.description = "This gem provides Sencha Touch GPL to Rails assets pipeline"
+  s.licenses     = ["AV","MIT"]
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "sencha-touch-rails"
 
-  s.add_dependency "railties", ">= 3.2.1", "< 5.0"
-  #s.add_dependency "thor",     "~> 0.14"
   s.add_dependency "compass", ">= 1.0.1"
+  s.add_dependency "compass-blueprint", ">= 1.0.0"
 
   s.files        = `git ls-files`.split("\n")
   s.extensions   = 'ext/mkrf_conf.rb'

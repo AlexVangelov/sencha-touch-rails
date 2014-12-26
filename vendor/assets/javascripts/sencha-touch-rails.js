@@ -1,5 +1,5 @@
 /*
-This file includes Senchca Touch in Rails Asset Pipeline
+This file includes Senchca Touch javascrip files in Rails Asset Pipeline
 @author Alex Vangelov <email@data.bg>
 
 GNU General Public License Usage
