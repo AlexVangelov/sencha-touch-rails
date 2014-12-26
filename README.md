@@ -89,3 +89,5 @@ Simple usage with coffee script:
               html: "Settings"
             }
           ]
+          
+[https://alexvangelov.wordpress.com/2014/12/26/sencha-touch-rails](https://alexvangelov.wordpress.com/2014/12/26/sencha-touch-rails)
