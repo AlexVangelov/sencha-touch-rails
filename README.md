@@ -96,3 +96,6 @@ An article about sencha-touch-rails:
 ## Work in progress:
 
 In production environment Ext.Loader is not able to load dependencies since they are not included in Sprockets. Even if we pass all Sencha Touch source files to sprockets and compile them, Ext.Loader is not compatible with production hashed file names. Workaround is to put manually Sencha Touch javascript sources in `public/assets/sencha-touch`. There should be a way to extract Ext dependencies list in ruby, then sencha-touch-rails will be able to add it as required assets for compilation. This way we should have an optimized application specific Sencha Touch framework in both development and production environments.
+
+### A hint:
+You can see Sencha Touch loaded dependencies from browser's console by executing: `for(i in Ext.Loader.history){ console.log(Ext.Loader.getPath(Ext.Loader.history[i])); }` and add them manually to the application.js before going to production. 
