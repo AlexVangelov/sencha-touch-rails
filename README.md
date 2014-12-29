@@ -14,7 +14,7 @@ And then execute:
 
     $ bundle install
 
-Keep in mind that Sencha Touch GPL is downloaded during the gem instalation and can take a long time. You can monitor download progress by install it yourself as:
+Keep in mind that Sencha Touch GPL is downloaded during the gem installation and can take a long time. You can monitor download progress by install it yourself as:
 
     $ gem install sencha-touch-rails --verbose
 
