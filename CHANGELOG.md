@@ -1,3 +1,6 @@
+## 2.0.1
+  - Include alternative mappings
+
 ## 2.0.0
 
   - Sencha Touch 2.4.1 GPL
